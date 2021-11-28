@@ -9,7 +9,7 @@ import java.util.List;
  * 输出类的父类
  */
 @Data
-public class OutPojo<T> {
+public class OutPojo {
     protected String status;
 
     protected String info;

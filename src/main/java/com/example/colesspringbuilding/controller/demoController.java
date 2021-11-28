@@ -6,11 +6,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.example.colesspringbuilding.constant.DConstant;
 import com.example.colesspringbuilding.pojo.OutGeocodesPojo;
-import com.example.colesspringbuilding.pojo.OutPojo;
-import com.example.colesspringbuilding.pojo.geoCodes;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;

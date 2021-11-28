@@ -3,6 +3,13 @@ package com.example.colesspringbuilding.pojo;
 import lombok.Data;
 
 import java.util.List;
+
+/**
+ * 输出类
+ * 地理编码：输入地址进行编码
+ * 2021.11.28
+ *
+ */
 @Data
 public class OutGeocodesPojo extends OutPojo{
     protected List<GeoCodes> geocodes ;
