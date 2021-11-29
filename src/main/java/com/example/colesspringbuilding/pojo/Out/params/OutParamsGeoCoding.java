@@ -1,4 +1,4 @@
-package com.example.colesspringbuilding.pojo;
+package com.example.colesspringbuilding.pojo.Out.params;
 
 import lombok.Data;
 
@@ -11,8 +11,8 @@ import java.util.List;
  *
  */
 @Data
-public class OutGeocodesPojo extends OutPojo{
-    protected List<GeoCodes> geocodes ;
+public class OutParamsGeoCoding extends AbstractOutParamsPojo {
+    public List<OutParamsGeoCoding.GeoCodes> geocodes ;
 
     @Data
     public class GeoCodes {
