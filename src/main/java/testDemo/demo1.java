@@ -3,7 +3,6 @@ package testDemo;
 import cn.hutool.http.HttpUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.example.colesspringbuilding.constant.DConstant;
 import com.example.colesspringbuilding.pojo.In.InHeadPojo;
 import com.example.colesspringbuilding.pojo.In.params.InParamsGeoCoding;
 import com.example.colesspringbuilding.pojo.OutGeocodesPojo;
@@ -16,7 +15,7 @@ public class demo1 {
         InParamsGeoCoding params = new InParamsGeoCoding();
         InHeadPojo in = new InHeadPojo();
         in.setUrl("https://restapi.amap.com/v3/geocode/geo");
-        params.setKey(DConstant.GEO_KEY);
+//        params.setKey(DConstant.GEO_KEY);
         params.setAddress("四川省成都市博物馆");
 
 
