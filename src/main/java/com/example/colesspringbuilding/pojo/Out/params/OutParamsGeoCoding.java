@@ -12,6 +12,8 @@ import java.util.List;
  */
 @Data
 public class OutParamsGeoCoding extends AbstractOutParamsPojo {
+    public Integer count;
+
     public List<OutParamsGeoCoding.GeoCodes> geocodes ;
 
     @Data
