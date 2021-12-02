@@ -1,6 +1,7 @@
 package com.example.colesspringbuilding.Interface;
 
 import com.example.colesspringbuilding.pojo.In.InPojo;
+import com.example.colesspringbuilding.pojo.In.params.AbstractInParamsPojo;
 import com.example.colesspringbuilding.pojo.In.params.InParamsGeoCoding;
 import com.example.colesspringbuilding.pojo.Out.params.AbstractOutParamsPojo;
 import com.example.colesspringbuilding.pojo.Out.params.OutParamsGeoCoding;
@@ -10,14 +11,12 @@ import com.example.colesspringbuilding.pojo.Out.params.OutParamsGeoCoding;
  */
 public interface ICallUrlService {
     /**
-     *
-     * @param <T>
+     * @param
      * @return
      */
-     public <T extends AbstractOutParamsPojo> T callUrl(InPojo in);
+    AbstractOutParamsPojo callUrl(InPojo<? extends AbstractInParamsPojo> in);
 
     /**
-     *
      * @param inParams
      * @return
      */

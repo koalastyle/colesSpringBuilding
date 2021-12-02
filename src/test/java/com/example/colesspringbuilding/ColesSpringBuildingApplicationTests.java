@@ -7,7 +7,6 @@ import com.example.colesspringbuilding.constant.DConstant;
 import com.example.colesspringbuilding.pojo.In.InPojo;
 import com.example.colesspringbuilding.pojo.In.params.InParamsGeoCoding;
 import com.example.colesspringbuilding.pojo.Out.params.OutParamsGeoCoding;
-import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,7 +21,6 @@ class ColesSpringBuildingApplicationTests {
     private String secretKey;
 
     @Test
-    @Ignore
     void contextLoads() {
        /* OutGeocodesPojo outGeocodesPojo = new OutGeocodesPojo();
         outGeocodesPojo.setInfo("success");
@@ -54,7 +52,6 @@ class ColesSpringBuildingApplicationTests {
         System.out.println(outParam.toString());
     }
     @Test
-    @Ignore
     void staticMapTest(){
         HashMap<String,Object> map = new HashMap<>();
         map.put("key",secretKey);
