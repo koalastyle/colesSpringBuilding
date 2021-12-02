@@ -19,6 +19,6 @@ public class AbstractOutParamsPojo {
 
 
     public boolean isSuccess(){
-        return "1".equals(status)?true:false;
+        return "1".equals(status);
     }
 }
