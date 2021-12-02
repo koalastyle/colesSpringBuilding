@@ -10,5 +10,8 @@ import lombok.Data;
 public abstract class AbstractInParamsPojo {
     private String key;
 
-    public abstract Class<? extends AbstractOutParamsPojo> getOutClass();
+    public abstract <T extends AbstractOutParamsPojo> Class<T> getOutClass();
+
+
+    public abstract String getUrl();
 }

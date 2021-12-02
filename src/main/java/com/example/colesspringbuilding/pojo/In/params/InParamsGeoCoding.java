@@ -1,5 +1,6 @@
 package com.example.colesspringbuilding.pojo.In.params;
 
+import com.example.colesspringbuilding.constant.DConstant;
 import com.example.colesspringbuilding.pojo.Out.params.OutParamsGeoCoding;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -20,5 +21,10 @@ public class InParamsGeoCoding extends AbstractInParamsPojo {
     @Override
     public Class<OutParamsGeoCoding> getOutClass() {
         return OutParamsGeoCoding.class;
+    }
+
+    @Override
+    public String getUrl() {
+        return DConstant.URL_GEO_CODING;
     }
 }

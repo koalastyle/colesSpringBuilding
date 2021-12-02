@@ -20,14 +20,14 @@ public class CallUrlService implements ICallUrlService {
     @Override
     public <T extends AbstractOutParamsPojo,E extends AbstractInParamsPojo> T callUrl(E in) {
         //获取url
-/*        String url = in.getUrl();
+        String url = in.getUrl();
         //获取对应的输出类
-        Class<T> outClass = in.getOutType();
+        Class<T> outClass = in.getOutClass();
         //通过url进行调用
         String response = HttpUtil.get(url, getJson(in));
         //TODO 将取得的T的类名放入
-        T out = JSON.parseObject(response,outClass);*/
-        return null;
+        T out = JSON.parseObject(response,outClass);
+        return out;
     }
 
     @Override

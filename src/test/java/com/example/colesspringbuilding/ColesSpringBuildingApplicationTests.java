@@ -3,8 +3,8 @@ package com.example.colesspringbuilding;
 import cn.hutool.http.HttpUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.example.colesspringbuilding.Interface.ICallUrlService;
 import com.example.colesspringbuilding.constant.DConstant;
-import com.example.colesspringbuilding.pojo.In.InPojo;
 import com.example.colesspringbuilding.pojo.In.params.InParamsGeoCoding;
 import com.example.colesspringbuilding.pojo.Out.params.OutParamsGeoCoding;
 import org.junit.jupiter.api.Test;
@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 
 @SpringBootTest
@@ -19,9 +20,11 @@ import java.util.HashMap;
 class ColesSpringBuildingApplicationTests {
     @Value("${app.secret-key:}")
     private String secretKey;
+    @Resource
+    private ICallUrlService callUrlService;
 
     @Test
-    void contextLoads() {
+    void TestCallUrl() {
        /* OutGeocodesPojo outGeocodesPojo = new OutGeocodesPojo();
         outGeocodesPojo.setInfo("success");
         Object o = JSON.toJSON(outGeocodesPojo);
@@ -31,8 +34,7 @@ class ColesSpringBuildingApplicationTests {
         */
 
         InParamsGeoCoding params = new InParamsGeoCoding();
-        InPojo in = new InPojo();
-        in.setUrl("https://restapi.amap.com/v3/geocode/geo");
+
 
         params.setKey(secretKey);
         System.out.println("secretKey="+secretKey);
@@ -42,15 +44,11 @@ class ColesSpringBuildingApplicationTests {
             params.setBatch("true");
         }
 
-//        Map<String,Object> ss = getJson(params);
-        String response = HttpUtil.get(in.getUrl(), getJson(params));
-//        AbstractOutParamsPojo out = new AbstractOutParamsPojo();
-        OutParamsGeoCoding outParam = new OutParamsGeoCoding();
 
-        outParam = JSON.parseObject(response,outParam.getClass());
-        JSONObject json = JSON.parseObject(response);
+        OutParamsGeoCoding outParam  = callUrlService.callUrl(params);
         System.out.println(outParam.toString());
     }
+
     @Test
     void staticMapTest(){
         HashMap<String,Object> map = new HashMap<>();
