@@ -1,34 +1,29 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
-    <div class="test">
-      Context: {{ context }}
-    </div>
+    <p>Context: {{ ip }}</p>
+    <button v-on:click="click">show ip</button>
   </div>
 </template>
 <script>
 import axios from "axios";
 
 export default {
-  name: "test",
   data() {
-    return {context: "1"}
+    return {ip: "0.0.0.0"}
   },
-  mounted() {
-    setInterval(() => {
-      get()
-    }, 1000)
+  methods: {
+    click() {
+      axios.get("https://httpbin.org/ip")
+          .then(res => {
+            this.ip = res.data.origin
+          })
+          .catch(err => {
+            console.log(err)
+            this.ip = "error"
+          })
+    }
   }
 }
 
-function get() {
-  axios.get("https://httpbin.org/ip")
-      .then(function (response) {
-            console.log(response)
-          }
-      )
-      .catch(function (error) {
-        console.log(error)
-      })
-}
 </script>
