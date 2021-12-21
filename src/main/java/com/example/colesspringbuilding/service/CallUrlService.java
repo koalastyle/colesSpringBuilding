@@ -25,7 +25,7 @@ public class CallUrlService implements ICallUrlService {
         Class<T> outClass = in.getOutClass();
         //通过url进行调用
         String response = HttpUtil.get(url, getJson(in));
-        //TODO 将取得的T的类名放入
+        //将取得的T的类名放入
         T out = JSON.parseObject(response,outClass);
         return out;
     }

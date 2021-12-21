@@ -1,12 +1,14 @@
 package com.example.colesspringbuilding.controller;
 
 import cn.hutool.core.util.StrUtil;
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
+import com.example.colesspringbuilding.Interface.ICallUrlService;
 import com.example.colesspringbuilding.pojo.In.params.InParamsGeoCoding;
+import com.example.colesspringbuilding.pojo.Out.params.OutParamsGeoCoding;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 
 @RestController
 @RequestMapping("/demo")
@@ -16,6 +18,9 @@ public class demoController {
 
     private static final String URL = "https://restapi.amap.com/v3/geocode/geo";
 
+    @Resource
+    private ICallUrlService callUrlService;
+
     @RequestMapping("/hello")
     public Object hello() throws Exception {
         if (StrUtil.isBlank(secretKey)) {
@@ -23,18 +28,15 @@ public class demoController {
         }
 
         InParamsGeoCoding params = new InParamsGeoCoding();
-
-
         params.setKey(secretKey);
-        System.out.println("secretKey="+secretKey);
         params.setAddress("四川省成都市博物馆");
+        if(params.getAddress().contains("|")){
+            params.setBatch("true");
+        }
+        OutParamsGeoCoding out = callUrlService.callUrl(params);
 
-        return null;
+        return out.toString();
     }
 
-    JSONObject getJson(InParamsGeoCoding o){
-        Object obj =  JSON.toJSON(o);
-        JSONObject json = JSON.parseObject(obj.toString());
-        return json;
-    }
+
 }
